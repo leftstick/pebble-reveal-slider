@@ -5,7 +5,7 @@
         var address = document.getElementById('address');
 
         var options = {
-            'background_color': address.value
+            'address': address.value
         };
         // Save for next launch
         localStorage['address'] = options['address'];
