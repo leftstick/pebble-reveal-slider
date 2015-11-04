@@ -9,16 +9,12 @@ var Vector2 = require('vector2');
 var Settings = require('settings');
 
 Settings.config(
-  { url: 'http://leftstick.github.io/pebble-reveal-slider/' },
+    { url: 'http://192.168.2.1:8080/' },
   function(e) {
-    console.log('opening configurable');
-
-    // Reset color to red before opening the webview
-    console.log(Settings.option('remoteAddress'));
+    console.log('opening configurable' +  Settings.option('remoteAddress'));
   },
   function(e) {
-      var opts =  JSON.stringify(e.options);
-      Settings.option('remoteAddress', opts.remoteAddress);
+      console.log('on closed' + JSON.stringify(Settings.option()));
   }
 );
 
