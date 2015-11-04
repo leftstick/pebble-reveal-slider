@@ -1,2 +1,3 @@
-# pebble-reveal-slider
-This is a reveal-slide controller app for pebble
+# Configuration Web
+
+This is the configuration web for pebble-reveal-slider
