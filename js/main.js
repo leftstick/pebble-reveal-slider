@@ -1,7 +1,12 @@
-(function(window) {
+(function(window, document) {
     'use strict';
 
-    console.log(window.options);
-    console.log(window.Settings)
+    document.querySelector('#submit').addEventListener('click', function() {
+        var options = {
+            remoteAddress: document.querySelector('#remoteAddress').value
+        };
 
-}(window));
+        window.location.href = 'pebblejs://close#' + encodeURIComponent(JSON.stringify(options));;
+    }, false);
+
+}(window, document));
