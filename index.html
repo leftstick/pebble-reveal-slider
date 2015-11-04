@@ -7,25 +7,53 @@
     <meta name="renderer" content="webkit"/>
     <meta http-equiv="Cache-Control" content="no-siteapp" />
 
+    <style>
+      .title {
+        padding: 15px 10px;
+        text-transform: uppercase;
+        font-family: 'PT Sans', sans-serif;
+        font-size: 1.2em;
+        font-weight: 500;
+        color: #888888;
+        text-align: center;
+      }
+    </style>
+
     <link rel="icon" type="image/png" href="img/favicon.ico">
     <title>Configuration pebble-reveal-slider</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="css/slate.min.css" media="screen" title="no title" charset="utf-8">
 </head>
 <body>
-    <div class="jumbotron text-center">
-      <h3>Pebble reveal slider Configuration</h3>
+    <h1 class='title'>Reveal Slides Configuration</h1>
+
+    <div class='item-container'>
+      <div class='item-container-content'>
+        <div class='item'>
+          Use this configuration page to set the reveal slide you would like control by using pebble.
+        </div>
+      </div>
     </div>
 
-    <div class="container-fluid">
-        <form>
-          <div class="form-group">
-            <label for="slide-address">Slide Address</label>
-            <input id="remoteAddress" type="text" class="form-control" id="slide-address" placeholder="http://www.revealslide.com" required>
-          </div>
-          <button id="submit" type="button" class="btn btn-warning pull-right">Submit</button>
-        </form>
+    <div class='item-container'>
+      <div class='item-container-header'>Controllability</div>
+      <div class='item-container-content'>
+        <label class='item'>
+          Slide Address
+          <input id='address' type='text' class='item-input' value='' placeholder="http://slide.example.com">
+        </label>
+      </div>
+      <div class='item-container-footer'>
+        Set the Reveal Slide URL. Used to build connection between pebble app and your slide.
+      </div>
     </div>
 
+    <div class='item-container'>
+      <div class='button-container'>
+        <input id='submit_button' type='button' class='item-button' value='SUBMIT'>
+      </div>
+    </div>
+
+    <script src="js/slate.min.js" charset="utf-8"></script>
     <script src="js/main.js" charset="utf-8"></script>
 </body>
 </html>
