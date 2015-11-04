@@ -8,13 +8,28 @@ var Vibe = require('ui/vibe');
 var Vector2 = require('vector2');
 var Settings = require('settings');
 
+ var slideShow = new UI.Text({
+     position: new Vector2(0, 60),
+     size: new Vector2(144, 168),
+     font: 'gothic-24',
+     text: '1 - 1',
+     color: 'black',
+     backgroundColor: 'white',
+     textAlign: 'center'
+ });
+
 Settings.config(
-    { url: 'http://192.168.2.1:8080/' },
+    { url: 'http://leftstick.github.io/pebble-reveal-slider/' },
   function(e) {
-    console.log('opening configurable' +  Settings.option('remoteAddress'));
+      console.log('opening configurable: ' +  Settings.option('address'));
   },
   function(e) {
-      console.log('on closed' + JSON.stringify(Settings.option()));
+      var address = Settings.option('address');
+      if(!address){
+          return;
+      }
+      subTitle.text('current position');
+      wind.add(slideShow);
   }
 );
 
@@ -40,18 +55,18 @@ var subTitle = new UI.Text({
     backgroundColor: 'white',
     textAlign: 'center'
 });
+
+var address = Settings.option('address');
+
+if(!address){
+    subTitle.text('Slide address has not been set. Please configure it first!');
+}
+
 wind.add(subTitle);
 
-var slideShow = new UI.Text({
-    position: new Vector2(0, 60),
-    size: new Vector2(144, 168),
-    font: 'gothic-24',
-    text: '1 - 1',
-    color: 'black',
-    backgroundColor: 'white',
-    textAlign: 'center'
-});
-wind.add(slideShow);
+if(address){
+    wind.add(slideShow);
+}
 
 wind.show();
 
